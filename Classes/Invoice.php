@@ -358,4 +358,18 @@ class Invoice
 
         return $this->pdf->stream($name, ['Attachment' => false]);
     }
+ 
+    /**
+     * Output the generated PDF.
+     *
+     * @method output
+     *
+     * @return string|null
+     */
+    public function output()
+    {
+        $invoice = $this->generate();
+
+        return $invoice->pdf->output();
+    }
 }
